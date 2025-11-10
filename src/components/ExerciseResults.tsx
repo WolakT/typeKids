@@ -50,6 +50,20 @@ export function ExerciseResults({ stats, lessonId, exerciseId, onNext, onTryAgai
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        onNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onNext]);
+
   return (
     <Card className="w-full text-center animate-in fade-in-50 zoom-in-95">
       <CardHeader>

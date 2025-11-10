@@ -14,6 +14,7 @@ export function TypingExercise({ exercise, onComplete }: TypingExerciseProps) {
   const [userInput, setUserInput] = useState('');
   const [errorIndexes, setErrorIndexes] = useState<number[]>([]);
   const [startTime, setStartTime] = useState<number | null>(null);
+  const [animatedIndex, setAnimatedIndex] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const textToType = exercise.text;
@@ -66,6 +67,16 @@ export function TypingExercise({ exercise, onComplete }: TypingExerciseProps) {
   }, []);
 
   useEffect(() => {
+    if (userInput.length > 0) {
+      const lastCharIndex = userInput.length - 1;
+      if (userInput[lastCharIndex] === textToType[lastCharIndex] && !errorIndexes.includes(lastCharIndex)) {
+        setAnimatedIndex(lastCharIndex);
+        setTimeout(() => setAnimatedIndex(null), 200);
+      }
+    }
+  }, [userInput, textToType, errorIndexes]);
+
+  useEffect(() => {
     if (userInput.length === textToType.length && startTime) {
       const endTime = Date.now();
       const timeTaken = (endTime - startTime) / 1000; // in seconds
@@ -102,6 +113,7 @@ export function TypingExercise({ exercise, onComplete }: TypingExerciseProps) {
                   'text-muted-foreground/50': !isTyped && !isCurrent,
                   'text-foreground': isCurrent,
                   'border-b-4 border-accent animate-pulse': isCurrent,
+                  'pop': index === animatedIndex,
                 })}
               >
                 {char}
