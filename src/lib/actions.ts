@@ -9,7 +9,7 @@ import { z } from 'zod';
 
 // Dummy AI flow for compilation and demonstration purposes.
 // This would be replaced by importing the actual flow from `@/ai/flows`.
-const evaluateTyping = ai.flow(
+const evaluateTyping = ai.defineFlow(
     {
       name: 'evaluateTyping',
       inputSchema: z.object({
