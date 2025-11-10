@@ -3,7 +3,6 @@
 // This is a placeholder for the actual AI flow import.
 // Per instructions, the AI flows are pre-implemented in `src/ai/flows`.
 // We assume a flow named `evaluateTyping` exists.
-import { run } from '@genkit-ai/next';
 // import { evaluateTyping } from '@/ai/flows/evaluateTyping';
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
@@ -44,7 +43,7 @@ export async function getAIAssessment(stats: {
   exerciseId: number;
 }) {
   try {
-    const recommendation = await run(evaluateTyping, stats);
+    const recommendation = await evaluateTyping(stats);
     return { success: true, recommendation };
   } catch (error) {
     console.error('AI assessment failed:', error);
