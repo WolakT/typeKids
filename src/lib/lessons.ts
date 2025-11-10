@@ -1,0 +1,58 @@
+import type { Lesson } from './types';
+
+export const lessons: Lesson[] = [
+  {
+    id: 1,
+    title: 'Lesson 1: The Home Row Begins',
+    description: 'Learn the first two letters on the home row.',
+    keys: ['f', 'j'],
+    exercises: [
+      { id: 1, text: 'f j' },
+      { id: 2, text: 'ff jj' },
+      { id: 3, text: 'fj jf' },
+      { id: 4, text: 'fjf jfj' },
+      { id: 5, text: 'fjj jff' },
+      { id: 6, text: 'jf fj jf fj' },
+      { id: 7, text: 'f j f j fj jf' },
+      { id: 8, text: 'jj ff jf fj' },
+      { id: 9, text: 'fj fj fj fj' },
+      { id: 10, text: 'jf jf jf jf' },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Lesson 2: More Home Row',
+    description: 'Let\'s add "d" and "k" to your skills.',
+    keys: ['d', 'k'],
+    exercises: [
+      { id: 1, text: 'd k' },
+      { id: 2, text: 'dd kk' },
+      { id: 3, text: 'dk kd' },
+      { id: 4, text: 'fjd kfd' },
+      { id: 5, text: 'jdk fjk' },
+      { id: 6, text: 'jfkd fjdk' },
+      { id: 7, text: 'dd kk ff jj' },
+      { id: 8, text: 'dj fk' },
+      { id: 9, text: 'kj df' },
+      { id: 10, text: 'dad fad jak' },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Lesson 3: Completing the Home Row',
+    description: 'Master the home row with "s", "l", "a", and ";".',
+    keys: ['s', 'l', 'a', ';'],
+    exercises: [
+      { id: 1, text: 's l' },
+      { id: 2, text: 'ss ll' },
+      { id: 3, text: 'sl ls' },
+      { id: 4, text: 'sad lad' },
+      { id: 5, text: 'ask all fall' },
+      { id: 6, text: 'a sad dad; a lad asks; a lass falls' },
+      { id: 7, text: 'salk jfds' },
+      { id: 8, text: 'flasks dads' },
+      { id: 9, text: 'jas fads lad' },
+      { id: 10, text: 'salad flask' },
+    ],
+  },
+];
